@@ -5,11 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
-    <div id="wrapper">
-    <BrowserRouter>
-      <SideBar />
-      <ContentWrapper />
-    </BrowserRouter>
+    <div id="wrapper" style={{ backgroundColor: 'black' }}>
+      <BrowserRouter>
+        <SideBar />
+        <ContentWrapper />
+      </BrowserRouter>
     </div>
   );
 }
