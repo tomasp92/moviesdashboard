@@ -25,9 +25,9 @@ import React from 'react';
 const useFetch = (callback, objectInData) => {
     const [state, setState] = React.useState(initialState)
     
-    const fetchData = () => {
+    const fetchData = (url) => {
         setState(loadingState)
-        fetch(callback)
+        fetch(url ? url : callback)
         .then(res => res.json())
         .then(data => {
             if(data[objectInData]){

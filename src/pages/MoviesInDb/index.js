@@ -4,7 +4,9 @@ export default function MoviesInDb() {
     return(
         <Card 
             size="12"
-            title="Movies">
+            title="Movies"
+            style={{ backgroundColor: 'black' }}
+            >
             <Movies />
         </Card>
     )

@@ -6,8 +6,8 @@ function Movies() {
     const { data, isLoading} = useFetch('/api/movies', 'data')
 
     return(
-        <div className="row">
-            <table className="table">
+        <div className="row" style={{ backgroundColor: 'black' }}>
+            <table className="table" style={{ backgroundColor: 'black' }}>
             <thead>
                 <tr> 
                     <th>Titulo</th> 
