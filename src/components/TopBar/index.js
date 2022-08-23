@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
 import jordanWalke from "../../assets/images/jordan-walke.png"
+import useTheme from './../../hooks/useTheme';
 
 export default function NavBar() {
+    const {darkTheme} = useTheme()
     return (
-        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style={{ backgroundColor: 'black' }}>
+        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style={{backgroundColor: darkTheme ? 'black': 'white'}}>
 
             {/* Sidebar Toggle (Topbar) */}
             <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">

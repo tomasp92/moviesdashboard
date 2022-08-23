@@ -32,11 +32,9 @@ className = '',
 }) => {
     const [state, setState] = React.useState('')
     const loadOptions = (inputText, callback) => {
-        console.log("🚀 ~ inputText", inputText)
         fetch(`http://www.omdbapi.com/?s=${inputText}&apikey=${apiKey}`)
         .then(res=>res.json())
         .then(data => {
-            console.log("🚀 ~ data", data)
             callback(mapper(data.Search))
 
         })
@@ -44,7 +42,6 @@ className = '',
 
     }
     const handleChange = (e) => {
-        console.log("🚀 ~ e", e)
         setState(e)
     }
     return(

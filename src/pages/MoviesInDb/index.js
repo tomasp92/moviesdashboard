@@ -1,11 +1,15 @@
 import Card from './../../components/Card';
 import Movies from './../../components/Movies/index';
+import useTheme from './../../hooks/useTheme';
+
+
 export default function MoviesInDb() {
+    const {darkTheme} = useTheme()
     return(
         <Card 
             size="12"
             title="Movies"
-            style={{ backgroundColor: 'black' }}
+            style={{backgroundColor: darkTheme ? 'black': 'white'}}
             >
             <Movies />
         </Card>

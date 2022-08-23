@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import img from "../../assets/images/logo-DH.png"
 import logo from "../../logo.svg"
+import {ThemeContext} from './../../context/ThemeContext';
 
 const SideBar = () => {
     return (<ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">

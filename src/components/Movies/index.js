@@ -1,13 +1,14 @@
 import React from "react";
 import Movie from './Movie';
 import useFetch from './../../hooks/useFetch';
+import useTheme from './../../hooks/useTheme';
 
 function Movies() {
     const { data, isLoading} = useFetch('/api/movies', 'data')
-
+    const {darkTheme} = useTheme()
     return(
-        <div className="row" style={{ backgroundColor: 'black' }}>
-            <table className="table" style={{ backgroundColor: 'black' }}>
+        <div className="row" style={{backgroundColor: darkTheme ? 'black': 'white'}}>
+            <table className="table" style={{backgroundColor: darkTheme ? 'black': 'white'}}>
             <thead>
                 <tr> 
                     <th>Titulo</th> 

@@ -1,8 +1,12 @@
 import Card from './../../components/Card';
 import mandalorian from '../../assets/images/mandalorian.jpg';
+import useTheme from './../../hooks/useTheme';
+
 
 export default function LastMovieInDb() {
+    const context = useTheme()
 
+    console.log("🚀 ~ context", context)
     return(
         <Card title="Last movie in Data Base">
             <div className="text-center">

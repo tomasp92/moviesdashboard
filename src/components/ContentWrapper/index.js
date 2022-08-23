@@ -4,16 +4,19 @@ import Footer from "../Footer"
 import NavBar from "../TopBar";
 import ContentRowTop from './../ContentRowTop';
 import ContentMiddle from './../ContentMiddle';
+import useTheme from './../../hooks/useTheme';
 
 export default function ContentWrapper() {
+    const {darkTheme, toggleTheme, themeStyle} = useTheme()
     return(
-        <div id="content-wrapper" className="d-flex flex-column" style={{ backgroundColor: 'black' }}>
-			<div id="content" style={{ backgroundColor: 'black' }}>
-                <NavBar style={{ backgroundColor: 'black' }}/>
+        <div id="content-wrapper" className="d-flex flex-column" style={themeStyle}>
+			<div id="content" style={themeStyle}>
+                <NavBar style={themeStyle}/>
 			</div>
-            <ContentRowTop style={{ backgroundColor: 'black' }} />
-            <ContentMiddle style={{ backgroundColor: 'black' }} />   
-            <Footer style={{ backgroundColor: 'black' }}/>
+            <ContentRowTop style={themeStyle} />
+            <ContentMiddle style={themeStyle}  />   
+            <Footer style={themeStyle} />
+            <button style={themeStyle} onClick={toggleTheme}>{ darkTheme ? "go to  white Theme" : "go to dark  Theme" }</button>
 		</div>
     )
 }
