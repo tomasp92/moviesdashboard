@@ -26,6 +26,7 @@ const useFetch = (callback, objectInData) => {
     const [state, setState] = React.useState(initialState)
     
     const fetchData = (url) => {
+        console.log("🚀 ~ url", url)
         setState(loadingState)
         fetch(url ? url : callback)
         .then(res => res.json())

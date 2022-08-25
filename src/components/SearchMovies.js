@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
+import debounce from "lodash.debounce"
 
 const apiKey = '1fa17e22'; // Intenta poner cualquier cosa antes para probar
 
@@ -11,16 +12,19 @@ const apiKey = '1fa17e22'; // Intenta poner cualquier cosa antes para probar
 function SearchMovies() {
 	const [keyword, setKeyword] = React.useState('action');
 	
-	const {data, fetchData, isLoading, error, errorMessage} = useFetch(`http://www.omdbapi.com/?s=${keyword}&apikey=${apiKey}`, 'Search');
 	const inputReference = useRef('')
+	const {data, fetchData, isLoading, error, errorMessage} = useFetch(`http://www.omdbapi.com/?s=${keyword}&apikey=${apiKey}`, 'Search');
 
 	const searchNewMovie = (event) => {
 		event.preventDefault();
 		setKeyword(inputReference.current.value)
 	}
 	React.useEffect(() => {
-		fetchData()
+		console.log("🚀 ~ keyword", keyword)
+		debounce(fetchData, 3000)
+		console.log("🚀 ~ debounced", debounce)
 	} , [keyword])
+
 	return (
 		<div className="container-fluid">
 			<div className="row my-4">
@@ -29,7 +33,7 @@ function SearchMovies() {
 					<form method="GET" onSubmit={e=>searchNewMovie(e)}>
 						<div className="form-group">
 							<label htmlFor="">Buscar por título:</label>
-							<input type="text" className="form-control" ref={inputReference} />
+							<input type="text" className="form-control" ref={inputReference} onChange={searchNewMovie}/>
 						</div>
 						<button className="btn btn-info">Search</button>
 					</form>
